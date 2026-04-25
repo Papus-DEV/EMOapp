@@ -1,0 +1,14 @@
+# .NET
+**/bin/
+**/obj/
+.dotnet/
+.logs/
+
+# Angular / Node
+**/node_modules/
+**/dist/
+.angular/
+
+# Environment
+.env
+.env.*

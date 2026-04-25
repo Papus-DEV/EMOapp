@@ -1,0 +1,15 @@
+{
+  "name": "emoapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm --prefix frontend start\" \"dotnet run --project backend/backend.csproj --launch-profile http\" \"npm run open:swagger\"",
+    "start:frontend": "npm --prefix frontend start",
+    "start:frontendfe": "npm --prefix frontend startfe",
+    "start:backend": "dotnet run --project backend/backend.csproj --launch-profile http",
+    "open:swagger": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"$url = 'http://localhost:5100/swagger'; for ($i = 0; $i -lt 30; $i++) { try { Invoke-WebRequest -UseBasicParsing $url -TimeoutSec 1 | Out-Null; Start-Process $url; exit 0 } catch { Start-Sleep -Seconds 1 } }; exit 1\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

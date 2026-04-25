@@ -1,0 +1,74 @@
+<main class="min-h-screen bg-slate-50 px-4 py-6 text-slate-900 sm:px-6 lg:px-8">
+  <section class="mx-auto flex max-w-7xl flex-col gap-6">
+    <header class="flex flex-col gap-4 border-b border-slate-200 pb-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <p class="mb-2 text-sm font-medium text-primary">Epic Marketing Orchestrator</p>
+        <h1 class="text-3xl font-semibold tracking-normal text-slate-950">Campaign Operations</h1>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <p-button label="Export" icon="pi pi-download" severity="secondary" outlined="true"></p-button>
+        <p-button label="New Campaign" icon="pi pi-plus" styleClass="bg-primary text-primary-contrast"></p-button>
+      </div>
+    </header>
+
+    <section class="grid gap-4 md:grid-cols-3">
+      <p-card styleClass="h-full">
+        <div class="flex flex-col gap-2">
+          <span class="text-sm font-medium text-slate-500">Active campaigns</span>
+          <strong class="text-3xl font-semibold text-slate-950">18</strong>
+          <span class="text-sm text-emerald-600">+12% this month</span>
+        </div>
+      </p-card>
+
+      <p-card styleClass="h-full">
+        <div class="flex flex-col gap-2">
+          <span class="text-sm font-medium text-slate-500">Pipeline budget</span>
+          <strong class="text-3xl font-semibold text-slate-950">$41.5k</strong>
+          <span class="text-sm text-slate-500">Across 4 channels</span>
+        </div>
+      </p-card>
+
+      <p-card styleClass="h-full">
+        <div class="flex flex-col gap-2">
+          <span class="text-sm font-medium text-slate-500">Pending reviews</span>
+          <strong class="text-3xl font-semibold text-slate-950">6</strong>
+          <span class="text-sm text-amber-600">Needs approval</span>
+        </div>
+      </p-card>
+    </section>
+
+    <p-card styleClass="overflow-hidden">
+      <ng-template #title>
+        <div class="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <span>Campaign Queue</span>
+          <p-button label="Refresh" icon="pi pi-refresh" severity="secondary" text="true"></p-button>
+        </div>
+      </ng-template>
+
+      <p-table [value]="campaigns" [tableStyle]="{ 'min-width': '48rem' }" styleClass="p-datatable-sm">
+        <ng-template #header>
+          <tr>
+            <th>Campaign</th>
+            <th>Channel</th>
+            <th>Owner</th>
+            <th>Budget</th>
+            <th>Status</th>
+          </tr>
+        </ng-template>
+
+        <ng-template #body let-campaign>
+          <tr>
+            <td>{{ campaign.name }}</td>
+            <td>{{ campaign.channel }}</td>
+            <td>{{ campaign.owner }}</td>
+            <td>{{ campaign.budget | currency }}</td>
+            <td>
+              <p-tag [value]="campaign.status" [severity]="getSeverity(campaign.status)"></p-tag>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </p-card>
+  </section>
+</main>
