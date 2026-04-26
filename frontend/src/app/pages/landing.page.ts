@@ -11,12 +11,12 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
   selector: 'app-landing-page',
   imports: [CommonModule, RouterLink, RevealOnScrollDirective],
   template: `
-    <div class="bg-app-surface text-slate-900">
-      <header class="sticky top-0 z-40 border-b border-white/70 bg-white/85 backdrop-blur-xl">
+    <div class="landing-shell">
+      <header class="landing-header sticky top-0 z-40">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">EMOapp</p>
-            <p class="text-lg font-extrabold tracking-tight text-slate-950">AI Marketing System</p>
+            <p class="landing-brand-kicker text-xs font-semibold uppercase tracking-[0.24em]">EMOapp</p>
+            <p class="landing-brand-title text-lg font-extrabold tracking-tight">AI Marketing System</p>
           </div>
 
           <nav class="hidden items-center gap-2 md:flex">
@@ -33,12 +33,12 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
           </nav>
 
           <div class="flex items-center gap-3">
-            <a routerLink="/login" class="interactive-button rounded-2xl px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100">
+            <a routerLink="/login" class="interactive-button ai-text-button rounded-md px-4 py-2 text-sm font-semibold">
               Login
             </a>
             <a
               routerLink="/register"
-              class="interactive-button rounded-2xl bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+              class="interactive-button ai-primary-button rounded-md px-4 py-2 text-sm font-semibold"
             >
               Start free
             </a>
@@ -48,16 +48,16 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
 
       <main>
         <section class="relative overflow-hidden px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-24">
-          <div class="absolute inset-x-0 top-0 -z-10 h-[32rem] bg-gradient-to-br from-sky-200/40 via-indigo-200/20 to-transparent blur-3xl"></div>
+          <div class="ai-orb-background absolute inset-x-0 top-0 -z-10 h-[32rem] blur-3xl"></div>
           <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
             <div revealOnScroll>
-              <span class="inline-flex rounded-full bg-sky-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-sky-700">
+              <span class="landing-kicker inline-flex rounded-md px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em]">
                 Stop guessing. Start converting.
               </span>
-              <h1 class="mt-6 max-w-3xl text-5xl font-black leading-tight tracking-tight text-slate-950 sm:text-6xl">
+              <h1 class="landing-heading mt-6 max-w-3xl text-5xl font-black leading-tight tracking-tight sm:text-6xl">
                 Stop guessing your marketing and start getting customers
               </h1>
-              <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              <p class="landing-body mt-6 max-w-2xl text-lg leading-8">
                 You should not have to waste money on random posts, bad ads, and ideas that go nowhere. Turn your
                 product into clear campaigns that help you sell faster.
               </p>
@@ -65,13 +65,13 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
               <div class="mt-8 flex flex-col gap-4 sm:flex-row">
                 <a
                   routerLink="/register"
-                  class="interactive-button inline-flex items-center justify-center rounded-2xl bg-slate-950 px-6 py-3.5 text-sm font-semibold text-white hover:bg-slate-800"
+                  class="interactive-button ai-primary-button inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold"
                 >
                   Start free now
                 </a>
                 <button
                   type="button"
-                  class="interactive-button inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:border-sky-300 hover:bg-sky-50"
+                  class="interactive-button ai-secondary-button inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm font-semibold"
                   (click)="scrollToSection('solution')"
                 >
                   See it in action
@@ -80,45 +80,45 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
 
               <div class="mt-10 grid gap-4 sm:grid-cols-3">
                 @for (stat of heroStats; track stat.label) {
-                  <div revealOnScroll class="interactive-card rounded-[1.75rem] border border-slate-200 bg-white/80 p-5 shadow-sm backdrop-blur">
-                    <p class="text-3xl font-extrabold tracking-tight text-slate-950">{{ stat.value }}</p>
-                    <p class="mt-2 text-sm text-slate-500">{{ stat.label }}</p>
+                  <div revealOnScroll class="interactive-card ai-soft-panel rounded-lg p-5">
+                    <p class="ai-text-primary text-3xl font-extrabold tracking-tight">{{ stat.value }}</p>
+                    <p class="ai-text-secondary mt-2 text-sm">{{ stat.label }}</p>
                   </div>
                 }
               </div>
             </div>
 
-            <div revealOnScroll class="interactive-card rounded-[2rem] border border-slate-200 bg-white p-5 shadow-2xl">
-              <div class="rounded-[1.5rem] bg-slate-950 p-5 text-white">
+            <div revealOnScroll class="interactive-card ai-glass-panel-strong rounded-lg p-5">
+              <div class="ai-soft-panel rounded-lg p-5">
                 <div class="flex items-center justify-between">
                   <div>
-                    <p class="text-xs uppercase tracking-[0.22em] text-sky-200">System preview</p>
-                    <p class="mt-2 text-2xl font-bold">Your future marketing system</p>
+                    <p class="ai-highlight-text text-xs uppercase tracking-[0.22em]">System preview</p>
+                    <p class="ai-text-primary mt-2 text-2xl font-bold">Your future marketing system</p>
                   </div>
-                  <div class="rounded-2xl bg-white/10 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-100">Live</div>
+                  <div class="ai-live-badge rounded-md px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em]">Live</div>
                 </div>
 
                 <div class="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div revealOnScroll class="rounded-[1.25rem] bg-white/8 p-4">
-                    <p class="text-xs uppercase tracking-[0.2em] text-sky-100">Product</p>
-                    <p class="mt-3 text-lg font-semibold">Organic hair serum</p>
+                  <div revealOnScroll class="ai-soft-panel rounded-lg p-4">
+                    <p class="ai-highlight-text text-xs uppercase tracking-[0.2em]">Product</p>
+                    <p class="ai-text-primary mt-3 text-lg font-semibold">Organic hair serum</p>
                   </div>
-                  <div revealOnScroll class="rounded-[1.25rem] bg-white/8 p-4">
-                    <p class="text-xs uppercase tracking-[0.2em] text-sky-100">Goal</p>
-                    <p class="mt-3 text-lg font-semibold">Get first 100 customers</p>
+                  <div revealOnScroll class="ai-soft-panel rounded-lg p-4">
+                    <p class="ai-highlight-text text-xs uppercase tracking-[0.2em]">Goal</p>
+                    <p class="ai-text-primary mt-3 text-lg font-semibold">Get first 100 customers</p>
                   </div>
                 </div>
               </div>
 
               <div class="mt-5 grid gap-4">
                 @for (preview of previewCards; track preview.title) {
-                  <div revealOnScroll class="interactive-card rounded-[1.5rem] bg-slate-50 p-4">
+                  <div revealOnScroll class="interactive-card ai-soft-panel rounded-lg p-4">
                     <div class="flex items-center justify-between gap-4">
                       <div>
-                        <p class="text-sm font-semibold text-slate-950">{{ preview.title }}</p>
-                        <p class="mt-1 text-sm text-slate-500">{{ preview.description }}</p>
+                        <p class="ai-text-primary text-sm font-semibold">{{ preview.title }}</p>
+                        <p class="ai-text-secondary mt-1 text-sm">{{ preview.description }}</p>
                       </div>
-                      <span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
+                      <span class="ai-chip rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">
                         {{ preview.badge }}
                       </span>
                     </div>
@@ -132,9 +132,9 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
         <section id="problem" revealOnScroll class="px-4 py-18 sm:px-6 lg:px-8">
           <div class="mx-auto max-w-7xl">
             <div revealOnScroll class="max-w-2xl">
-              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">Problem</p>
-              <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950">Why most small businesses stay invisible</h2>
-              <p class="mt-4 text-lg leading-8 text-slate-600">
+              <p class="landing-section-kicker text-xs font-semibold uppercase tracking-[0.24em]">Problem</p>
+              <h2 class="landing-section-title mt-3 text-4xl font-black tracking-tight">Why most small businesses stay invisible</h2>
+              <p class="landing-section-copy mt-4 text-lg leading-8">
                 You can have a solid product and still lose money if your marketing is random, unclear, and impossible to
                 repeat.
               </p>
@@ -142,12 +142,12 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
 
             <div class="mt-10 grid gap-5 md:grid-cols-3">
               @for (problem of problems; track problem.title) {
-                <article revealOnScroll class="interactive-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-red-500">
+                <article revealOnScroll class="interactive-card ai-glass-panel rounded-lg p-6">
+                  <div class="ai-icon-panel flex h-12 w-12 items-center justify-center rounded-md text-sky-300">
                     <i class="{{ problem.icon }}"></i>
                   </div>
-                  <h3 class="mt-5 text-xl font-bold text-slate-950">{{ problem.title }}</h3>
-                  <p class="mt-3 text-sm leading-7 text-slate-600">{{ problem.description }}</p>
+                  <h3 class="ai-text-primary mt-5 text-xl font-bold">{{ problem.title }}</h3>
+                  <p class="ai-text-secondary mt-3 text-sm leading-7">{{ problem.description }}</p>
                 </article>
               }
             </div>
@@ -155,11 +155,11 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
         </section>
 
         <section id="solution" revealOnScroll class="px-4 py-18 sm:px-6 lg:px-8">
-          <div class="mx-auto max-w-7xl rounded-[2.25rem] border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+          <div class="ai-glass-panel mx-auto max-w-7xl rounded-lg p-6 sm:p-8 lg:p-10">
             <div revealOnScroll class="max-w-3xl">
-              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">Solution</p>
-              <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950">From confusion to campaigns in five clear steps</h2>
-              <p class="mt-4 text-lg leading-8 text-slate-600">
+              <p class="landing-section-kicker text-xs font-semibold uppercase tracking-[0.24em]">Solution</p>
+              <h2 class="landing-section-title mt-3 text-4xl font-black tracking-tight">From confusion to campaigns in five clear steps</h2>
+              <p class="landing-section-copy mt-4 text-lg leading-8">
                 Instead of guessing your next move, you follow a simple path that turns what you sell into marketing
                 people understand and buy from.
               </p>
@@ -167,12 +167,12 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
 
             <div class="mt-10 grid gap-4 lg:grid-cols-5">
               @for (step of workflow; track step.step) {
-                <article revealOnScroll class="interactive-card rounded-[1.75rem] bg-slate-50 p-5">
-                  <span class="inline-flex rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white">
+                <article revealOnScroll class="interactive-card ai-soft-panel rounded-lg p-5">
+                  <span class="ai-primary-button inline-flex rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">
                     {{ step.step }}
                   </span>
-                  <h3 class="mt-5 text-xl font-bold text-slate-950">{{ step.title }}</h3>
-                  <p class="mt-3 text-sm leading-7 text-slate-600">{{ step.description }}</p>
+                  <h3 class="ai-text-primary mt-5 text-xl font-bold">{{ step.title }}</h3>
+                  <p class="ai-text-secondary mt-3 text-sm leading-7">{{ step.description }}</p>
                 </article>
               }
             </div>
@@ -182,18 +182,18 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
         <section id="features" revealOnScroll class="px-4 py-18 sm:px-6 lg:px-8">
           <div class="mx-auto max-w-7xl">
             <div revealOnScroll class="max-w-2xl">
-              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">Features</p>
-              <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950">Everything you need to stop wasting effort</h2>
+              <p class="landing-section-kicker text-xs font-semibold uppercase tracking-[0.24em]">Features</p>
+              <h2 class="landing-section-title mt-3 text-4xl font-black tracking-tight">Everything you need to stop wasting effort</h2>
             </div>
 
             <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               @for (feature of features; track feature.title) {
-                <article revealOnScroll class="interactive-card rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-sky-600">
+                <article revealOnScroll class="interactive-card ai-glass-panel rounded-lg p-6">
+                  <div class="ai-icon-panel flex h-12 w-12 items-center justify-center rounded-md text-sky-300">
                     <i class="{{ feature.icon }}"></i>
                   </div>
-                  <h3 class="mt-5 text-xl font-bold text-slate-950">{{ feature.title }}</h3>
-                  <p class="mt-3 text-sm leading-7 text-slate-600">{{ feature.description }}</p>
+                  <h3 class="ai-text-primary mt-5 text-xl font-bold">{{ feature.title }}</h3>
+                  <p class="ai-text-secondary mt-3 text-sm leading-7">{{ feature.description }}</p>
                 </article>
               }
             </div>
@@ -204,51 +204,51 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
           <div class="mx-auto max-w-7xl">
             <div class="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
               <div revealOnScroll>
-                <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">Demo</p>
-                <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950">This is what your marketing can look like next week</h2>
-                <p class="mt-4 text-lg leading-8 text-slate-600">
+                <p class="landing-section-kicker text-xs font-semibold uppercase tracking-[0.24em]">Demo</p>
+                <h2 class="landing-section-title mt-3 text-4xl font-black tracking-tight">This is what your marketing can look like next week</h2>
+                <p class="landing-section-copy mt-4 text-lg leading-8">
                   Your product, your message, your campaigns, and your next best actions in one place so you can stop
                   guessing and start moving with confidence.
                 </p>
               </div>
 
-              <div revealOnScroll class="interactive-card rounded-[2rem] border border-slate-200 bg-white p-5 shadow-2xl">
+              <div revealOnScroll class="interactive-card ai-glass-panel-strong rounded-lg p-5">
                 <div class="flex items-center justify-between">
                   <div>
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Dashboard preview</p>
-                    <h3 class="mt-2 text-2xl font-bold text-slate-950">Campaign command center</h3>
+                    <p class="ai-text-muted text-xs font-semibold uppercase tracking-[0.2em]">Dashboard preview</p>
+                    <h3 class="ai-text-primary mt-2 text-2xl font-bold">Campaign command center</h3>
                   </div>
-                  <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700">
+                  <span class="ai-live-badge rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">
                     Placeholder demo
                   </span>
                 </div>
 
                 <div class="mt-6 grid gap-4 md:grid-cols-3">
                   @for (metric of demoMetrics; track metric.label) {
-                    <div revealOnScroll class="interactive-card rounded-[1.5rem] bg-slate-50 p-4">
-                      <p class="text-xs uppercase tracking-[0.18em] text-slate-400">{{ metric.label }}</p>
-                      <p class="mt-3 text-2xl font-bold text-slate-950">{{ metric.value }}</p>
+                    <div revealOnScroll class="interactive-card ai-soft-panel rounded-lg p-4">
+                      <p class="ai-text-muted text-xs uppercase tracking-[0.18em]">{{ metric.label }}</p>
+                      <p class="ai-text-primary mt-3 text-2xl font-bold">{{ metric.value }}</p>
                     </div>
                   }
                 </div>
 
-                <div revealOnScroll class="mt-5 rounded-[1.5rem] bg-slate-50 p-4">
+                <div revealOnScroll class="ai-soft-panel mt-5 rounded-lg p-4">
                   <div class="grid gap-4 md:grid-cols-[0.9fr_1.1fr]">
                     <div class="space-y-3">
                       @for (row of demoList; track row.title) {
-                        <div revealOnScroll class="interactive-card rounded-[1.25rem] bg-white p-4 shadow-sm">
-                          <p class="text-sm font-semibold text-slate-950">{{ row.title }}</p>
-                          <p class="mt-1 text-sm text-slate-500">{{ row.description }}</p>
+                        <div revealOnScroll class="interactive-card ai-soft-panel rounded-lg p-4">
+                          <p class="ai-text-primary text-sm font-semibold">{{ row.title }}</p>
+                          <p class="ai-text-secondary mt-1 text-sm">{{ row.description }}</p>
                         </div>
                       }
                     </div>
 
-                    <div revealOnScroll class="interactive-card rounded-[1.25rem] bg-white p-5 shadow-sm">
-                      <p class="text-sm font-semibold text-slate-950">Optimization suggestion</p>
-                      <div class="mt-4 h-3 overflow-hidden rounded-full bg-slate-100">
+                    <div revealOnScroll class="interactive-card ai-soft-panel rounded-lg p-5">
+                      <p class="ai-text-primary text-sm font-semibold">Optimization suggestion</p>
+                      <div class="ai-progress-track mt-4 h-3 overflow-hidden rounded-md">
                         <div class="h-full w-[74%] rounded-full bg-gradient-to-r from-sky-500 to-indigo-600"></div>
                       </div>
-                      <p class="mt-4 text-sm leading-7 text-slate-600">
+                      <p class="ai-text-secondary mt-4 text-sm leading-7">
                         Increase landing-page clarity and repurpose top-performing content into email follow-up to improve conversions.
                       </p>
                     </div>
@@ -262,40 +262,40 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
         <section id="pricing" revealOnScroll class="px-4 py-18 sm:px-6 lg:px-8">
           <div class="mx-auto max-w-7xl">
             <div revealOnScroll class="max-w-2xl">
-              <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-600">Pricing</p>
-              <h2 class="mt-3 text-4xl font-black tracking-tight text-slate-950">Start with zero risk. Upgrade when it starts working.</h2>
+              <p class="landing-section-kicker text-xs font-semibold uppercase tracking-[0.24em]">Pricing</p>
+              <h2 class="landing-section-title mt-3 text-4xl font-black tracking-tight">Start with zero risk. Upgrade when it starts working.</h2>
             </div>
 
             <div class="mt-10 grid gap-6 lg:grid-cols-2">
-              <article revealOnScroll class="interactive-card rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-700">Free</span>
-                <h3 class="mt-5 text-3xl font-black tracking-tight text-slate-950">$0</h3>
-                <p class="mt-2 text-sm text-slate-500">Perfect for your first product. No big commitment. No pressure.</p>
-                <ul class="mt-6 space-y-3 text-sm text-slate-600">
+              <article revealOnScroll class="interactive-card ai-glass-panel rounded-lg p-8">
+                <span class="ai-chip rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">Free</span>
+                <h3 class="ai-text-primary mt-5 text-3xl font-black tracking-tight">$0</h3>
+                <p class="ai-text-secondary mt-2 text-sm">Perfect for your first product. No big commitment. No pressure.</p>
+                <ul class="ai-text-secondary mt-6 space-y-3 text-sm">
                   <li>1 product</li>
                   <li>Core AI workflow</li>
                   <li>Basic content and campaign guidance</li>
                 </ul>
                 <a
                   routerLink="/register"
-                  class="interactive-button mt-8 inline-flex rounded-2xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+                  class="interactive-button ai-primary-button mt-8 inline-flex rounded-md px-5 py-3 text-sm font-semibold"
                 >
                   Start free now
                 </a>
               </article>
 
-              <article revealOnScroll class="interactive-card rounded-[2rem] border border-sky-200 bg-gradient-to-br from-sky-50 to-white p-8 shadow-xl">
-                <span class="rounded-full bg-sky-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">Pro</span>
-                <h3 class="mt-5 text-3xl font-black tracking-tight text-slate-950">$50<span class="text-lg font-semibold text-slate-500">/month</span></h3>
-                <p class="mt-2 text-sm text-slate-500">For businesses ready to scale what works with more clarity and momentum.</p>
-                <ul class="mt-6 space-y-3 text-sm text-slate-600">
+              <article revealOnScroll class="interactive-card ai-glass-panel-strong rounded-lg p-8">
+                <span class="ai-live-badge rounded-md px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em]">Pro</span>
+                <h3 class="ai-text-primary mt-5 text-3xl font-black tracking-tight">$50<span class="ai-text-secondary text-lg font-semibold">/month</span></h3>
+                <p class="ai-text-secondary mt-2 text-sm">For businesses ready to scale what works with more clarity and momentum.</p>
+                <ul class="ai-text-secondary mt-6 space-y-3 text-sm">
                   <li>Multiple products</li>
                   <li>Full campaign workflow</li>
                   <li>Optimization suggestions and faster execution</li>
                 </ul>
                 <a
                   routerLink="/register"
-                  class="interactive-button mt-8 inline-flex rounded-2xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+                  class="interactive-button ai-primary-button mt-8 inline-flex rounded-md px-5 py-3 text-sm font-semibold"
                 >
                   Upgrade to Pro
                 </a>
@@ -305,23 +305,23 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
         </section>
 
         <section revealOnScroll class="px-4 pb-24 pt-18 sm:px-6 lg:px-8">
-          <div class="mx-auto max-w-7xl rounded-[2.25rem] bg-slate-950 px-6 py-12 text-center text-white shadow-2xl sm:px-10">
-            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Final CTA</p>
-            <h2 class="mt-4 text-4xl font-black tracking-tight">Every week you wait is another week of lost sales</h2>
-            <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-300">
+          <div class="ai-glass-panel-strong mx-auto max-w-7xl rounded-lg px-6 py-12 text-center shadow-2xl sm:px-10">
+            <p class="landing-section-kicker text-xs font-semibold uppercase tracking-[0.24em]">Final CTA</p>
+            <h2 class="landing-section-title mt-4 text-4xl font-black tracking-tight">Every week you wait is another week of lost sales</h2>
+            <p class="landing-section-copy mx-auto mt-5 max-w-2xl text-base leading-8">
               You already have something worth selling. Now build the marketing system that helps people buy it. Start
               free and launch with clarity today.
             </p>
             <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 routerLink="/register"
-                class="interactive-button inline-flex rounded-2xl bg-white px-6 py-3.5 text-sm font-semibold text-slate-950 hover:bg-slate-100"
+                class="interactive-button ai-primary-button inline-flex rounded-md px-6 py-3.5 text-sm font-semibold"
               >
                 Start free now
               </a>
               <button
                 type="button"
-                class="interactive-button inline-flex rounded-2xl border border-white/20 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10"
+                class="interactive-button ai-secondary-button inline-flex rounded-md px-6 py-3.5 text-sm font-semibold"
                 (click)="scrollToSection('pricing')"
               >
                 Compare plans
@@ -334,7 +334,7 @@ type NavSectionId = 'problem' | 'solution' | 'features' | 'demo' | 'pricing';
       @if (showBackToTop()) {
         <button
           type="button"
-          class="interactive-button fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-slate-950 text-white shadow-[0_24px_60px_-24px_rgba(15,23,42,0.75)] hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200"
+          class="interactive-button ai-primary-button fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-lg focus:outline-none focus:ring-4 focus:ring-sky-200"
           aria-label="Back to top"
           (click)="scrollToTop()"
         >
